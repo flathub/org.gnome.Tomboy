@@ -9,7 +9,6 @@
         "--share=ipc",
         "--share=network",
         "--socket=x11",
-        "--talk-name=org.gnome.GConf",
         /* workaround for dbus-sharp quirk, where it connects unconditionally to the system bus */
         "--system-talk-name=org.freedesktop.DBus"
     ],
@@ -21,9 +20,12 @@
         "/lib/gtk-sharp-2.0",
         "/lib/mono-source-libs",
         "/lib/pkgconfig",
+        "/share/aclocal",
         "/share/gapi-2.0",
+        "/share/gtk-doc",
         "/share/man",
         "/share/mono-2.0",
+        "/share/sgml",
         "/share/xml"
     ],
     "modules": [
@@ -112,14 +114,24 @@
                 "--disable-gtk-doc",
                 "--disable-orbit",
                 "--disable-static",
+                "--disable-defaults-service",
+                "--disable-gsettings-backend",
                 "--without-openldap"
             ],
-            "cleanup": [ "/bin", "/include", "/libexec", "/lib/pkgconfig", "/share", "/etc" ],
+            "cleanup": [ "/bin/gconf-merge-tree" ],
             "sources": [
                 {
                     "type": "archive",
                     "url": "http://ftp.gnome.org/pub/GNOME/sources/GConf/3.2/GConf-3.2.6.tar.xz",
                     "sha256": "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
+                },
+                {
+                    "type": "patch",
+                    "path": "gconf-change-service-name.patch"
+                },
+                {
+                    "type": "shell",
+                    "commands": [ "autoreconf -vfi" ]
                 }
             ]
         },
@@ -200,7 +212,6 @@
         },
         {
             "name": "tomboy",
-            "config-opts": [ "--disable-schemas-install" ],
             "post-install": [
               "install -D -m644 org.gnome.Tomboy.appdata.xml /app/share/appdata/org.gnome.Tomboy.appdata.xml"
             ],
