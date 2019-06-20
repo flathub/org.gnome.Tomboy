@@ -53,11 +53,11 @@
                 /* Mono 4 TermInfo not compatible with ncurses6.1... */
                 {
                     "type": "patch",
-                    "path": "mono-terminfo-ncurses6.patch"
-                },
-                {
-                    "type": "patch",
-                    "path": "mono-terminfo-integer-fix.patch"
+                    "paths": [
+                      "mono-terminfo-ncurses6.patch",
+                      "mono-terminfo-integer-fix.patch",
+                      "mono-sysmacros-header.patch"
+                    ]
                 }
             ]
         },
