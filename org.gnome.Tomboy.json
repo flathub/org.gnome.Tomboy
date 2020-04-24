@@ -9,7 +9,8 @@
         "--share=network",
         "--socket=x11",
         /* workaround for dbus-sharp quirk, where it connects unconditionally to the system bus */
-        "--system-talk-name=org.freedesktop.DBus"
+        "--system-talk-name=org.freedesktop.DBus",
+        "--talk-name=org.kde.StatusNotifierWatcher"
     ],
     "rename-desktop-file": "tomboy.desktop",
     "rename-icon": "tomboy",
@@ -210,6 +211,241 @@
             ]
         },
         {
+            "name": "gnome-common",
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://ftp.gnome.org/pub/GNOME/sources/gnome-common/3.18/gnome-common-3.18.0.tar.xz",
+                    "sha256": "22569e370ae755e04527b76328befc4c73b62bfd4a572499fde116b8318af8cf"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "libdbusmenu",
+            "config-opts": [
+                "--disable-dumper",
+                "--disable-introspection",
+                "--disable-static",
+                "--disable-vala",
+                "--with-gtk=2"
+            ],
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://archive.ubuntu.com/ubuntu/pool/main/libd/libdbusmenu/libdbusmenu_16.04.1+18.10.20180917.orig.tar.gz",
+                    "sha512": "af9f1d58b1eb1b2d6f9a963713779cffc624fd291dc3ac2a32e94908f43b8e4ac49d1ebd7c729aa1e2ad7ae56979704c2000e60d5399bb0fa571cbab54651028"
+                }
+            ],
+            "cleanup": [
+                "/libexec",
+                "/share/libdbusmenu"
+            ]
+        },
+        {
+            "name": "perl-file-which",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz",
+                    "sha256": "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-alien-build",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.21.tar.gz",
+                    "sha256": "ebdd6dac2ed2f7fdd5f9a464021124048d1697307dfb1a77af267952e80b07d2"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-path-tiny",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz",
+                    "sha256": "813df2d140c65f795daefd8eca18e61194ecac7050c5406a069db86dea31cc3a"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-file-chdir",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz",
+                    "sha256": "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-capture-tiny",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Capture-Tiny-0.48.tar.gz",
+                    "sha256": "6c23113e87bad393308c90a207013e505f659274736638d8c79bac9c67cc3e19"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-alien-libxml2",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Libxml2-0.16.tar.gz",
+                    "sha256": "56f06a58054f788dcef8d3b6669fb47d172e9ca0b7a12d0241d9cf7835a53b97"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-xml-libxml",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0204.tar.gz",
+                    "sha256": "bd48b539ad4b3d419658db7e69811f3b5fe88c6fa3dd25b30bc83f7f203d2f36"
+                }
+            ],
+            "post-install": [
+                "find /app/lib/perl5 -type f -exec chmod u+w {} \\;"
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "perl-xml-sax-base",
+            "buildsystem": "simple",
+            "build-commands": [
+                "perl Makefile.PL",
+                "make install"
+            ],
+            "build-options": {
+                "env": {
+                    "PERL5LIB": "/app/lib/perl5",
+                    "PERL_MM_OPT": "INSTALL_BASE=/app"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "https://cpan.metacpan.org/authors/id/G/GR/GRANTM/XML-SAX-Base-1.09.tar.gz",
+                    "sha256": "66cb355ba4ef47c10ca738bd35999723644386ac853abbeb5132841f5e8a2ad0"
+                }
+            ],
+            "cleanup": [ "*" ]
+        },
+        {
+            "name": "libappindicator",
+            "config-opts": [
+                "--disable-introspection",
+                "--disable-static",
+                "--disable-mono-test",
+                "--disable-tests",
+                "--with-gtk=2"
+            ],
+            "build-options": {
+                "env": {
+                    "CSC": "/app/bin/mcs",
+                    "PERL5LIB": "/app/lib/perl5"
+                }
+            },
+            "sources": [
+                {
+                    "type": "archive",
+                    "url": "http://archive.ubuntu.com/ubuntu/pool/main/liba/libappindicator/libappindicator_12.10.1+20.04.20200408.1.orig.tar.gz",
+                    "sha256": "c9f3be3b8b23a459162b258712db29d345bde8fe9bfefe235cacd6db07599b06",
+                    "strip-components": 0
+                }
+            ]
+        },
+        {
             "name": "tomboy",
             "post-install": [
               "install -D -m644 org.gnome.Tomboy.appdata.xml /app/share/appdata/org.gnome.Tomboy.appdata.xml"
@@ -227,6 +463,10 @@
                 {
                     "type": "patch",
                     "path": "tomboy-fix-mkdir.patch"
+                },
+                {
+                    "type": "patch",
+                    "path": "tomboy-app-indicator.patch"
                 },
                 {
                     "type": "shell",
