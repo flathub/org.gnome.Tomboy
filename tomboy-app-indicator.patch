@@ -121,7 +121,7 @@
 +		public TomboyIndicatorTray (NoteManager manager)
 +		{
 +			this.manager = manager;
-+			indicator = new ApplicationIndicator ("tomboy-notes", "tomboy", Category.ApplicationStatus);
++			indicator = new ApplicationIndicator ("tomboy-notes", "org.gnome.Tomboy", Category.ApplicationStatus);
 +			
 +			SetMenuItems ();
 +			indicator.Status = Status.Active;
