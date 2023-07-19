@@ -2,7 +2,7 @@
     "app-id": "org.gnome.Tomboy",
     "sdk": "org.freedesktop.Sdk",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "18.08",
+    "runtime-version": "22.08",
     "command": "tomboy",
     "finish-args": [
         "--share=ipc",
@@ -106,7 +106,7 @@
                 }
             ]
         },
-        "shared-modules/dbus-glib/dbus-glib-0.110.json",
+        "shared-modules/dbus-glib/dbus-glib.json",
         {
             "name": "gconf",
             "config-opts": [
@@ -223,6 +223,9 @@
         },
         {
             "name": "libdbusmenu",
+            "build-options": {
+                "cflags": "-DGLIB_DISABLE_DEPRECATION_WARNINGS"
+            },
             "config-opts": [
                 "--disable-dumper",
                 "--disable-introspection",
