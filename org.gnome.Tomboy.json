@@ -261,8 +261,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz",
-                    "sha256": "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz",
+                    "sha256": "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
                 }
             ],
             "cleanup": [ "*" ]
@@ -283,8 +283,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.21.tar.gz",
-                    "sha256": "ebdd6dac2ed2f7fdd5f9a464021124048d1697307dfb1a77af267952e80b07d2"
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.81_01.tar.gz",
+                    "sha256": "76f4af1eb49ad23391f0874a927e328ba8c57daaa77d6c55bfb6240b1d093a67"
                 }
             ],
             "cleanup": [ "*" ]
@@ -305,8 +305,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz",
-                    "sha256": "813df2d140c65f795daefd8eca18e61194ecac7050c5406a069db86dea31cc3a"
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz",
+                    "sha256": "f6ea094ece845c952a02c2789332579354de8d410a707f9b7045bd241206487d"
                 }
             ],
             "cleanup": [ "*" ]
@@ -327,8 +327,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz",
-                    "sha256": "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1011.tar.gz",
+                    "sha256": "31ebf912df48d5d681def74b9880d78b1f3aca4351a0ed1fe3570b8e03af6c79"
                 }
             ],
             "cleanup": [ "*" ]
@@ -393,8 +393,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0204.tar.gz",
-                    "sha256": "bd48b539ad4b3d419658db7e69811f3b5fe88c6fa3dd25b30bc83f7f203d2f36"
+                    "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0209.tar.gz",
+                    "sha256": "b4a5abbcd689aa2fbbc8b7b45339e961c4984e48108494eb6c282b4748222425"
                 }
             ],
             "post-install": [
