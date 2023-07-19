@@ -2,7 +2,7 @@
     "app-id": "org.gnome.Tomboy",
     "sdk": "org.freedesktop.Sdk",
     "runtime": "org.freedesktop.Platform",
-    "runtime-version": "18.08",
+    "runtime-version": "22.08",
     "command": "tomboy",
     "finish-args": [
         "--share=ipc",
@@ -106,7 +106,7 @@
                 }
             ]
         },
-        "shared-modules/dbus-glib/dbus-glib-0.110.json",
+        "shared-modules/dbus-glib/dbus-glib.json",
         {
             "name": "gconf",
             "config-opts": [
@@ -122,7 +122,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://ftp.gnome.org/pub/GNOME/sources/GConf/3.2/GConf-3.2.6.tar.xz",
+                    "url": "https://download.gnome.org/sources/GConf/3.2/GConf-3.2.6.tar.xz",
                     "sha256": "1912b91803ab09a5eed34d364bf09fe3a2a9c96751fde03a4e0cfa51a04d784c"
                 },
                 {
@@ -223,23 +223,38 @@
         },
         {
             "name": "libdbusmenu",
+            "build-options": {
+                "cflags": "-Wno-error",
+                "env": {
+                    "HAVE_VALGRIND_FALSE": "#",
+                    "HAVE_VALGRIND_TRUE": ""
+                }
+            },
+            "cleanup": [
+                "/include",
+                "/libexec",
+                "/lib/pkgconfig",
+                "/lib/*.la",
+                "/share/doc",
+                "/share/libdbusmenu",
+                "/share/gtk-doc",
+                "/share/gir-1.0"
+            ],
             "config-opts": [
-                "--disable-dumper",
-                "--disable-introspection",
                 "--disable-static",
+                "--disable-gtk-doc",
+                "--enable-introspection=no",
                 "--disable-vala",
+                "--disable-dumper",
+                "--disable-tests",
                 "--with-gtk=2"
             ],
             "sources": [
                 {
                     "type": "archive",
-                    "url": "http://archive.ubuntu.com/ubuntu/pool/main/libd/libdbusmenu/libdbusmenu_16.04.1+18.10.20180917.orig.tar.gz",
-                    "sha512": "af9f1d58b1eb1b2d6f9a963713779cffc624fd291dc3ac2a32e94908f43b8e4ac49d1ebd7c729aa1e2ad7ae56979704c2000e60d5399bb0fa571cbab54651028"
+                    "url": "https://launchpad.net/libdbusmenu/16.04/16.04.0/+download/libdbusmenu-16.04.0.tar.gz",
+                    "sha256": "b9cc4a2acd74509435892823607d966d424bd9ad5d0b00938f27240a1bfa878a"
                 }
-            ],
-            "cleanup": [
-                "/libexec",
-                "/share/libdbusmenu"
             ]
         },
         {
@@ -258,8 +273,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.23.tar.gz",
-                    "sha256": "b79dc2244b2d97b6f27167fc3b7799ef61a179040f3abd76ce1e0a3b0bc4e078"
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/File-Which-1.27.tar.gz",
+                    "sha256": "3201f1a60e3f16484082e6045c896842261fc345de9fb2e620fd2a2c7af3a93a"
                 }
             ],
             "cleanup": [ "*" ]
@@ -280,8 +295,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.21.tar.gz",
-                    "sha256": "ebdd6dac2ed2f7fdd5f9a464021124048d1697307dfb1a77af267952e80b07d2"
+                    "url": "https://cpan.metacpan.org/authors/id/P/PL/PLICEASE/Alien-Build-2.81_01.tar.gz",
+                    "sha256": "76f4af1eb49ad23391f0874a927e328ba8c57daaa77d6c55bfb6240b1d093a67"
                 }
             ],
             "cleanup": [ "*" ]
@@ -302,8 +317,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.112.tar.gz",
-                    "sha256": "813df2d140c65f795daefd8eca18e61194ecac7050c5406a069db86dea31cc3a"
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/Path-Tiny-0.144.tar.gz",
+                    "sha256": "f6ea094ece845c952a02c2789332579354de8d410a707f9b7045bd241206487d"
                 }
             ],
             "cleanup": [ "*" ]
@@ -324,8 +339,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1010.tar.gz",
-                    "sha256": "efc121f40bd7a0f62f8ec9b8bc70f7f5409d81cd705e37008596c8efc4452b01"
+                    "url": "https://cpan.metacpan.org/authors/id/D/DA/DAGOLDEN/File-chdir-0.1011.tar.gz",
+                    "sha256": "31ebf912df48d5d681def74b9880d78b1f3aca4351a0ed1fe3570b8e03af6c79"
                 }
             ],
             "cleanup": [ "*" ]
@@ -390,8 +405,8 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0204.tar.gz",
-                    "sha256": "bd48b539ad4b3d419658db7e69811f3b5fe88c6fa3dd25b30bc83f7f203d2f36"
+                    "url": "https://cpan.metacpan.org/authors/id/S/SH/SHLOMIF/XML-LibXML-2.0209.tar.gz",
+                    "sha256": "b4a5abbcd689aa2fbbc8b7b45339e961c4984e48108494eb6c282b4748222425"
                 }
             ],
             "post-install": [
@@ -453,7 +468,7 @@
             "sources": [
                 {
                     "type": "archive",
-                    "url": "https://ftp.gnome.org/pub/GNOME/sources/tomboy/1.15/tomboy-1.15.9.tar.xz",
+                    "url": "https://download.gnome.org/sources/tomboy/1.15/tomboy-1.15.9.tar.xz",
                     "sha256": "78d0a5f33db9b1077115773ad3291ecaf6e656f58545859b77a2ae7440abb248"
                 },
                 {
